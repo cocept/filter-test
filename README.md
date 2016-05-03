@@ -4,10 +4,8 @@ This is a demo project to showcase the usage of Cocept's filter bundle found [he
 
 # Setup
 
- - composer install
- - php app/console doctrine:schema:update --force
- - php app/console doctrine:fixtures:load
- - php app/console server:run
+ - cd filter-test
+ - make
 
 # Usage
 Once you have the site running, try visiting the following URLs to see the filter in action:
