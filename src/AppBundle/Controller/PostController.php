@@ -25,13 +25,28 @@ class PostController extends Controller
     public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
+
+        // get and filter posts
         $qb = $em->createQueryBuilder()->select('p')->from('AppBundle:Post', 'p');
         $this->get('cocept_filter.filter')->filter($request, $qb, array('name'), array('category'));
         $posts = $qb->getQuery()->getResult();
 
+        // get all categories and names for filter widget
+        $categories = $em->getRepository('AppBundle:Post')->getAllCategories();
+        $names = $em->getRepository('AppBundle:Post')->getAllNames();
+        $names = array_combine($names, $names);
+
         return $this->render('post/index.html.twig', array(
             'posts' => $posts,
+            'allCategories' => $categories,
+            'allNames' => $names
         ));
+    }
+
+    private function _flatten(Array $array){
+        $flattenedArray = array();
+        array_walk_recursive($array, function($a) use (&$flattenedArray) { $flattenedArray[] = $a; });
+        return $flattenedArray;
     }
 
     /**

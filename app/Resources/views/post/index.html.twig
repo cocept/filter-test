@@ -8,6 +8,7 @@
             <tr>
                 <th>Id</th>
                 <th>Name</th>
+                <th>Category</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -16,6 +17,7 @@
             <tr>
                 <td><a href="{{ path('post_show', { 'id': post.id }) }}">{{ post.id }}</a></td>
                 <td>{{ post.name }}</td>
+                <td>{{ post.category.name }}</td>
                 <td>
                     <ul>
                         <li>
@@ -29,6 +31,16 @@
             </tr>
         {% endfor %}
         </tbody>
+        <tfoot>
+            <td></td>
+            <td>
+                {{ filterWidget('name', allNames) }}
+            </td>
+            <td>
+                {{ filterWidget('category', allCategories) }}
+            </td>
+            <td></td>
+        </tfoot>
     </table>
 
     <ul>

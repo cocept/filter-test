@@ -12,4 +12,33 @@ use Doctrine\ORM\EntityRepository;
  */
 class PostRepository extends EntityRepository
 {
+	public function getAllCategories(){
+    	$allCategoriesResult = $this->createQueryBuilder('post')
+			->select('c.id, c.name')->distinct()
+            ->join('post.category', 'c')
+			->getQuery()
+			->getResult();
+        $allCategories = array();
+        foreach ($allCategoriesResult as $index => $data) {
+            $allCategories[$data['id']] = $data['name'];
+        }
+        return $allCategories;
+    }
+
+    public function getAllNames(){
+        $allNames = $this->createQueryBuilder('post')
+            ->select('post.name')->distinct()
+            ->getQuery()
+            ->getResult();
+        return $this->_flatten($allNames);
+    }
+
+ 	/**
+ 	 * Converts a doctrine row result array into a flat array
+ 	 */
+    private function _flatten(Array $array){
+    	$flattenedArray = array();
+    	array_walk_recursive($array, function($a) use (&$flattenedArray) { $flattenedArray[] = $a; });
+    	return $flattenedArray;
+    }
 }
