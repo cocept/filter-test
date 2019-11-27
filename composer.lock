@@ -4,26 +4,32 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5a0632a80f6056fc902965e0a2f14016",
+    "content-hash": "a86a86e5f2db47aba1277e4a0a9a0568",
     "packages": [
         {
             "name": "cocept/filter",
-            "version": "v1.0.14",
+            "version": "v1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cocept/filter.git",
-                "reference": "babf08a6298c6d8fc297819fcc4962de33ec9d9f"
+                "reference": "7a01ba46952210b571f60275fcc87500c6ef0e46"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cocept/filter/zipball/babf08a6298c6d8fc297819fcc4962de33ec9d9f",
-                "reference": "babf08a6298c6d8fc297819fcc4962de33ec9d9f",
+                "url": "https://api.github.com/repos/cocept/filter/zipball/7a01ba46952210b571f60275fcc87500c6ef0e46",
+                "reference": "7a01ba46952210b571f60275fcc87500c6ef0e46",
                 "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3",
+                "symfony/assetic-bundle": "^2.7",
+                "symfony/framework-bundle": "~2.3|~2.8",
+                "twig/twig": "~1.12|~2"
             },
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0.0-dev"
+                    "dev-master": "1.0.x-dev"
                 }
             },
             "autoload": {
@@ -41,7 +47,14 @@
                     "email": "max@cocept.io"
                 }
             ],
-            "time": "2016-05-03T08:21:34+00:00"
+            "description": "Lets you filter Doctrine queries in Symfony using a widget which sets url parameters. Plays nicely with KNP Paginator.",
+            "keywords": [
+                "doctrine",
+                "filter",
+                "knp paginator",
+                "symfony"
+            ],
+            "time": "2019-11-27T19:19:19+00:00"
         },
         {
             "name": "doctrine/annotations",
