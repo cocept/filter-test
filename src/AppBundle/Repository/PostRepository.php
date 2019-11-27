@@ -25,14 +25,6 @@ class PostRepository extends EntityRepository
         return $allCategories;
     }
 
-    public function getAllNames(){
-        $allNames = $this->createQueryBuilder('post')
-            ->select('post.name')->distinct()
-            ->getQuery()
-            ->getResult();
-        return $this->_flatten($allNames);
-    }
-
  	/**
  	 * Converts a doctrine row result array into a flat array
  	 */

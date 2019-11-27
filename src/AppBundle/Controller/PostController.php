@@ -33,13 +33,10 @@ class PostController extends Controller
 
         // get all categories and names for filter widget
         $categories = $em->getRepository('AppBundle:Post')->getAllCategories();
-        $names = $em->getRepository('AppBundle:Post')->getAllNames();
-        $names = array_combine($names, $names);
 
         return $this->render('post/index.html.twig', array(
             'posts' => $posts,
             'allCategories' => $categories,
-            'allNames' => $names
         ));
     }
 
